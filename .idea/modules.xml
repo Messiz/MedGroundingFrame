@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/MedGroundingFrame.iml" filepath="$PROJECT_DIR$/.idea/MedGroundingFrame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/torch-code-frame.iml" filepath="$PROJECT_DIR$/.idea/torch-code-frame.iml" />
     </modules>
   </component>
 </project>
