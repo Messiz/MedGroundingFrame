@@ -62,8 +62,8 @@ class Param:
 
     def get_test_result_dir(self, args):
         # 生成结果保存的路径result_dir
-        ext = os.path.basename(args.load_model_path).split('.')[-1]
-        model_dir = args.load_model_path.replace(ext, '')
+        ext = os.path.basename(args.load_model_path).split('.')[-1]  # 扩展名
+        model_dir = args.load_model_path.replace('.' + ext, '')
         val_info = os.path.basename(os.path.dirname(args.val_list)) + '_' + os.path.basename(
             args.val_list.replace('.txt', ''))
         result_dir = os.path.join(model_dir, val_info + '_' + args.save_prefix)
@@ -91,5 +91,17 @@ class Param:
 
 
 if __name__ == '__main__':
-    model_dir = os.path.join('checkpoints', 'cnn' + '_' + 'train')
+    load_model_path = 'checkpoints/base_model_pref/0.pth'
+    val_list = '/data/dataset1/list/base/val.txt'
+    save_prefix = 'pref'
+
+    ext = os.path.basename(load_model_path).split('.')[-1]  # 扩展名
+    print(ext)
+    model_dir = load_model_path.replace('.' + ext, '')
     print(model_dir)
+    print(os.path.dirname(val_list) + '_' + os.path.basename(val_list.replace('.txt', '')))
+    val_info = os.path.basename(os.path.dirname(val_list)) + '_' + os.path.basename(
+        val_list.replace('.txt', ''))
+    print(val_info)
+    result_dir = os.path.join(model_dir, val_info + '_' + save_prefix)
+    print(result_dir)
