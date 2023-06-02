@@ -11,14 +11,15 @@ from torch.autograd import Variable
 
 from data.data_entry import select_train_loader, select_eval_loader
 from model.model_entry import select_model
-from options import prepare_train_args
+from options import Param
 from utils.logger import Logger
 from utils.torch_utils import load_match_dict
 
 
 class Trainer:
     def __init__(self):
-        args = prepare_train_args()
+        self.param = Param()
+        args = self.param.prepare_train_args()
         self.args = args
         torch.manual_seed(args.seed)
         self.logger = Logger(args)
